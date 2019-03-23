@@ -1,0 +1,198 @@
+<html>
+<meta charset="UTF-8">
+<head>
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="http://cdn.wysibb.com/js/jquery.wysibb.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.wysibb.com/css/default/wbbtheme.css" />
+    <link rel="stylesheet" href="https://animeaddicts.hu/theme/css-screen.php?v=149" />
+    <script>
+        $(function() {
+            $("#editor").wysibb({
+                buttons: "bold,italic,underline,strike,|,img,aavideo,video,link,|,bullist,bluebull,numlist,|,fontcolor,fontsize,fontfamily,|,justifyleft,justifycenter,justifyright,|,quote,code,table,removeFormat,|,aajustify,spoiler,box1,box2,cimsor,spoiler,iniciale",
+                allButtons: {
+                    strike: {
+                       transform: {
+                            '<strike>{SELTEXT}</strike>':'[strike]{SELTEXT}[/strike]'
+                        } 
+                    },
+                    img: {
+                       transform: {
+                            '<img src="{SRC}">':'[img={SRC}]'
+                        } 
+                    },
+                    video: {
+                        transform: {
+                            '<iframe src="http://www.youtube.com/embed/{SRC}" width="640" height="480" frameborder="0"></iframe>':'[youtube={SRC}]'
+                        }
+                    },
+                    aajustify: {
+                        title: "Sorkizárt",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-justify.jpg" alt="" class="thumb">',
+                        transform: {
+                            '<p align="justify">{SELTEXT}</p>':'[justify]{SELTEXT}[/justify]'
+                        }
+                    },
+                    quote: {
+                        modal: {
+                            title: "Idézet",
+                            width: "500px",
+                            tabs: [
+                                {
+                                    input: [
+                                        {param: "kitol",title:"Kitől", type: "div"},
+                                        {param: "SELTEXT",title: "Szöveg", type: "div"}
+                                    ]
+                                }
+                            ]
+                        },
+                        transform: {
+                            '<div class="quote"><strong>{kitol}</strong> írta:<div style="margin-top:5px;"></div>{SELTEXT}</div></div>':'[quote={kitol}]{SELTEXT}[/quote]'
+                        }
+                    },
+                    link: {
+                        transform: {
+                            '<a href="{URL}">{SELTEXT}</a>':'[link={URL}]{SELTEXT}[/link]'
+                        }
+                    },
+                    /*spoiler: {
+                        title: "Spoiler",
+                        buttonText: "Spoiler",
+                        transform: {
+                            '':'[spoiler]{SELTEXT}[/spoiler]'
+                        }
+                    },*/
+                    box1: {
+                        title: "Teljes szélességű doboz",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-box.jpg" alt="" class="thumb">',
+                        transform: {
+                            '<div class="forum-box">{SELTEXT}</div>':'[box]{SELTEXT}[/box]'
+                        }
+                    },
+                    box2: {
+                        title: "Szöveg méretű doboz",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-box2.jpg" alt="" class="thumb">',
+                        transform: {
+                            '<div class="forum-box" style="float:left;width:auto;">{SELTEXT}</div>':'[box2]{SELTEXT}[/box2]'
+                        }
+                    },
+                    bullist: {
+                        transform : {
+                            '<ul>{SELTEXT}</ul>':"[ul]{SELTEXT}[/ul]",
+                            '<li>{SELTEXT}</li>':"[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    numlist: {
+                        transform : {
+                            '<ol>{SELTEXT}</ol>':"[ol]{SELTEXT}[/ol]",
+                            '<li>{SELTEXT}</li>':"[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    bluebull: {
+                        title: "Kék felsorolás",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-ul2.jpg" alt="" class="thumb">',
+                        transform : {
+                            '<ul style="list-style:circle url(./theme/images/li.gif);">{SELTEXT}</ul>':"[ul2]{SELTEXT}[/ul2]",
+                            '<li>{SELTEXT}</li>':"[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    fontsize: {
+                        title: "Méret...",
+                        options: "fs_apro,fs_kicsi,fs_normal,fs_kozepes,fs_nagy,fs_nagyobb,fs_oriasi"
+
+                    },
+                        //select options
+                        fs_apro: {
+                            title: "Apró",
+                            buttonText: "fs1",
+                            excmd: 'fontSize',
+                            exvalue: "1",
+                            transform: {
+                                '<font size="1">{SELTEXT}</font>':'[size=7]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_kicsi: {
+                            title: "Kicsi",
+                            buttonText: "fs2",
+                            excmd: 'fontSize',
+                            exvalue: "2",
+                            transform: {
+                                '<font size="2">{SELTEXT}</font>':'[size=9]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_normal: {
+                            title: "Normál",
+                            buttonText: "fs3",
+                            excmd: 'fontSize',
+                            exvalue: "3",
+                            transform: {
+                                '<font size="3">{SELTEXT}</font>':'[size=11]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_kozepes: {
+                            title: "Közepes",
+                            buttonText: "fs4",
+                            excmd: 'fontSize',
+                            exvalue: "4",
+                            transform: {
+                                '<font size="4">{SELTEXT}</font>':'[size=12]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_nagy: {
+                            title: "Nagy",
+                            buttonText: "fs5",
+                            excmd: 'fontSize',
+                            exvalue: "5",
+                            transform: {
+                                '<font size="5">{SELTEXT}</font>':'[size=16]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_nagyobb: {
+                            title: "Nagyobb",
+                            buttonText: "fs6",
+                            excmd: 'fontSize',
+                            exvalue: "6",
+                            transform: {
+                                '<font size="6">{SELTEXT}</font>':'[size=20]{SELTEXT}[/size]'
+                            }
+                        },
+                        fs_oriasi: {
+                            title: "Óriási",
+                            buttonText: "fs7",
+                            excmd: 'fontSize',
+                            exvalue: "7",
+                            transform: {
+                                '<font size="7">{SELTEXT}</font>':'[size=28]{SELTEXT}[/size]'
+                            }
+                        },
+
+                    cimsor: {
+                        title: "Címsor",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-h1.jpg" alt="" class="thumb">',
+                        transform: {
+                            '<div class="h1">{SELTEXT}</div>':'[h1]{SELTEXT}[/h1]'
+                        }
+                    },
+                    iniciale: {
+                        title: "Iniciálé",
+                        buttonHTML: '<img src="http://animeaddicts.hu/theme/apps/bb/bb-iniciale.jpg" alt="" class="thumb">',
+                        transform: {
+                            '<span style="font-size:40px;font-family:Times New Roman;">{SELTEXT}</span>':'[iniciale]{SELTEXT}[/iniciale]'
+                        }
+                    },
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <br><br><textarea id="editor"></textarea>
+</body>
+</html>
+
+<!--
+video - i can't even...
+spoiler - script?
+kék felsorolás - kép?
+iniciálé - font?
+elválasztók - dunno
+-->
