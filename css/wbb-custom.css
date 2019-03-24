@@ -1,0 +1,52 @@
+/* These are only needed because the fonts cannot be referenced cross-origin */
+@font-face { font-family: Hilda; src: url("../fonts/Hilda.eot") }
+@font-face { font-family: Hilda; src: url("../fonts/Hilda.ttf") }
+
+.wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select .wbb-list {
+    text-align: center;
+    width: auto;
+    max-width: 800px;
+    max-height: 400px;
+}
+
+.wbb-select .option {
+    padding: 10px 10px;
+}
+
+.custom-button {
+    width: 20px;
+}
+
+.iniciale {
+    font-family: Hilda;
+    font-size: 40px;
+}
+
+.iniciale-button {
+    font-family: Hilda !important;
+    font-size: 22px !important;
+}
+
+.bluebull {
+    list-style: circle url(http://animeaddicts.hu/theme/images/li.gif);
+}
+
+.quote p, .spoiler p {
+    height: 13px;
+    cursor: pointer;
+    padding-bottom: 5px;
+}
+
+.quote p {
+    border-bottom: 2px solid #AAA;
+}
+
+.spoiler p {
+    border-bottom: 2px solid #C00204;
+}
+
+.spoiler span {
+    cursor: pointer;
+    font-weight: bold;
+    color: #C00204;
+}

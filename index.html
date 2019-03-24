@@ -1,39 +1,27 @@
-<!--suppress JSNonASCIINames -->
-<!--suppress NonAsciiCharacters, CssNoGenericFontName -->
+<!--suppress JSNonASCIINames, NonAsciiCharacters, CssNoGenericFontName, HtmlFormInputWithoutLabel, CssUnusedSymbol, JSUnusedGlobalSymbols -->
 <html>
 <meta charset="UTF-8">
 <head>
     <script src="js/jquery-2.2.4.min.js"></script>
+    <link rel="stylesheet" href="https://animeaddicts.hu/theme/css-screen.php?v=149"/>
+
     <script src="js/jquery.wysibb.min.js"></script>
     <link rel="stylesheet" href="css/wbbtheme.css"/>
-    <link rel="stylesheet" href="css/css-screen.css"/>
-    <!--suppress CssUnusedSymbol -->
-    <style type="text/css">
-        .wysibb .wysibb-toolbar .wysibb-toolbar-container .wysibb-toolbar-btn.wbb-select .wbb-list {
-            text-align: center;
-            width: auto;
-            max-width: 800px;
-            max-height: 400px;
-        }
+    <link rel="stylesheet" href="css/wbb-custom.css"/>
 
-        .wbb-select .option {
-            padding: 10px 10px;
-        }
 
-        .custom-button {
-            width: 20px;
-        }
-
-        .iniciale {
-            font-family: Hilda !important;
-            font-size: 22px !important;
-        }
-    </style>
     <script>
+        function spoilerClick(target) {
+            if ($(target).parent().css('height') === '13px') {
+                $(target).parent().css('height', 'auto');
+            } else {
+                $(target).parent().css('height', '13px')
+            }
+        }
+
         $(function () {
             $.wysibb.prototype.pressTab = function (e) {
                 if (e && e.which === 9) {
-                    //insert tab
                     if (e.preventDefault) {
                         e.preventDefault();
                     }
@@ -50,26 +38,8 @@
             };
 
             $("#editor").wysibb({
-                buttons: "justifyleft,justify,justifycenter,justifyright,|,bullist,bluebull,numlist,cimsor,|,bold,italic,underline,strike,iniciale,|,link,aavideo,video,img,|,quote,spoiler,box1,box2,code,|,fontcolor,fontsize,|,divider,|,removeFormat",
+                buttons: "justifyleft,justify,justifycenter,justifyright,|,bullist,bluebull,numlist,cimsor,|,bold,italic,underline,strike,iniciale,|,link,video,img,|,quote,spoiler,box1,box2,code,|,fontcolor,fontsize,|,divider,|,removeFormat",
                 allButtons: {
-                    strike: {
-                        transform: {
-                            '<strike>{SELTEXT}</strike>': '[strike]{SELTEXT}[/strike]'
-                        }
-                    },
-                    img: {
-                        transform: {
-                            '<img src="{SRC}">': '[img={SRC}]'
-                        }
-                    },
-                    code: {
-                        buttonHTML: '<span class="fonticon custom-button">\uE00d</span>'
-                    },
-                    video: {
-                        transform: {
-                            '<iframe src="http://www.youtube.com/embed/{SRC}" width="640" height="480" frameborder="0"></iframe>': '[youtube={SRC}]'
-                        }
-                    },
                     justify: {
                         title: "Sorkizárt",
                         buttonHTML: '<span class="fonticon custom-button">\uE013</span>',
@@ -78,6 +48,66 @@
                             '<p style="text-align:justify">{SELTEXT}</p>': '[justify]{SELTEXT}[/justify]'
                         }
                     },
+
+                    bullist: {
+                        transform: {
+                            '<ul>{SELTEXT}</ul>': "[ul]{SELTEXT}[/ul]",
+                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    bluebull: {
+                        title: "Kék felsorolás",
+                        excmd: 'insertHTML',
+                        exvalue: "<ul class='bluebull''><li></li></ul>",
+                        buttonHTML: '<img class="fonticon custom-button thumb" src="http://animeaddicts.hu/theme/apps/bb/bb-ul2.jpg" alt="">',
+                        transform: {
+                            '<ul class="bluebull">{SELTEXT}</ul>': "[ul2]{SELTEXT}[/ul2]",
+                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    numlist: {
+                        transform: {
+                            '<ol>{SELTEXT}</ol>': "[ol]{SELTEXT}[/ol]",
+                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
+                        }
+                    },
+                    cimsor: {
+                        title: "Címsor",
+                        buttonHTML: '<img class="fonticon custom-button thumb" src="http://animeaddicts.hu/theme/apps/bb/bb-h1.jpg" alt="">',
+                        transform: {
+                            '<div class="h1">{SELTEXT}</div>': '[h1]{SELTEXT}[/h1]'
+                        }
+                    },
+
+                    strike: {
+                        transform: {
+                            '<strike>{SELTEXT}</strike>': '[strike]{SELTEXT}[/strike]'
+                        }
+                    },
+                    iniciale: {
+                        title: "Iniciálé",
+                        buttonHTML: '<span class="fonticon custom-button iniciale-button">A</span>',
+                        transform: {
+                            '<span class="iniciale">{SELTEXT}</span>': '[iniciale]{SELTEXT}[/iniciale]'
+                        }
+                    },
+
+                    link: {
+                        transform: {
+                            '<a href="{URL}">{SELTEXT}</a>': '[link={URL}]{SELTEXT}[/link]'
+                        }
+                    },
+                    video: {
+                        transform: {
+                            '<iframe src="http://www.youtube.com/embed/{SRC}" width="640" height="480" frameborder="0"></iframe>': '[youtube={SRC}]'
+                        }
+                    },
+                    img: {
+                        transform: {
+                            '<img src="{SRC}">': '[img={SRC}]'
+                        }
+                    },
+
                     quote: {
                         modal: {
                             title: "Idézet",
@@ -92,12 +122,14 @@
                             ]
                         },
                         transform: {
-                            '<div class="quote"><p style="height:13px;cursor:pointer;padding-bottom:5px;border-bottom:2px solid #AAA;"><strong>{from}</strong> írta:</p><div style="margin-top:5px;"></div>{SELTEXT}</div>': '[quote={from}]{SELTEXT}[/quote]'
+                            '<div class="quote"><p><strong>{from}</strong> írta:</p><div style="margin-top:5px;"></div>{SELTEXT}</div>': '[quote={from}]{SELTEXT}[/quote]'
                         }
                     },
-                    link: {
+                    spoiler: {
+                        title: "Spoiler",
+                        buttonText: "[Spoiler]",
                         transform: {
-                            '<a href="{URL}">{SELTEXT}</a>': '[link={URL}]{SELTEXT}[/link]'
+                            '<div class="spoiler"><p onclick="spoilerClick(this)" ontouchstart="spoilerClick(this)"><span>SPOILER!</span></p><div style="margin-top:5px;">{SELTEXT}</div></div>': '[spoiler]{SELTEXT}[/spoiler]'
                         }
                     },
                     box1: {
@@ -114,28 +146,10 @@
                             '<div class="forum-box box2" style="float:left;width:auto;">{SELTEXT}</div>': '[box2]{SELTEXT}[/box2]'
                         }
                     },
-                    bullist: {
-                        transform: {
-                            '<ul>{SELTEXT}</ul>': "[ul]{SELTEXT}[/ul]",
-                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
-                        }
+                    code: {
+                        buttonHTML: '<span class="fonticon custom-button">\uE00d</span>'
                     },
-                    numlist: {
-                        transform: {
-                            '<ol>{SELTEXT}</ol>': "[ol]{SELTEXT}[/ol]",
-                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
-                        }
-                    },
-                    bluebull: {
-                        title: "Kék felsorolás",
-                        excmd: 'insertHTML',
-                        exvalue: "<ul style='list-style:circle url(http://animeaddicts.hu/theme/images/li.gif);'><li></li></ul>",
-                        buttonHTML: '<img class="fonticon custom-button thumb" src="http://animeaddicts.hu/theme/apps/bb/bb-ul2.jpg" alt="">',
-                        transform: {
-                            '<ul class="bluebull">{SELTEXT}</ul>': "[ul2]{SELTEXT}[/ul2]",
-                            '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
-                        }
-                    },
+
                     fontsize: {
                         title: "Méret...",
                         options: "fs_apro,fs_kicsi,fs_normal,fs_kozepes,fs_nagy,fs_nagyobb,fs_oriasi"
@@ -203,20 +217,7 @@
                             '<font size="7">{SELTEXT}</font>': '[size=28]{SELTEXT}[/size]'
                         }
                     },
-                    cimsor: {
-                        title: "Címsor",
-                        buttonHTML: '<img class="fonticon custom-button thumb" src="http://animeaddicts.hu/theme/apps/bb/bb-h1.jpg" alt="">',
-                        transform: {
-                            '<div class="h1">{SELTEXT}</div>': '[h1]{SELTEXT}[/h1]'
-                        }
-                    },
-                    iniciale: {
-                        title: "Iniciálé",
-                        buttonHTML: '<span class="fonticon custom-button iniciale">A</span>',
-                        transform: {
-                            '<span style="font-size:40px;font-family:Hilda;">{SELTEXT}</span>': '[iniciale]{SELTEXT}[/iniciale]'
-                        }
-                    },
+
                     divider: {
                         type: 'select',
                         title: "Elválasztó...",
