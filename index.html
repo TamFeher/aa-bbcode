@@ -40,6 +40,27 @@
             $("#editor").wysibb({
                 buttons: "justifyleft,justify,justifycenter,justifyright,|,bullist,bluebull,numlist,cimsor,|,bold,italic,underline,strike,iniciale,|,link,video,img,|,quote,spoiler,box1,box2,code,|,fontcolor,fontsize,|,divider,|,removeFormat",
                 allButtons: {
+                    justifyleft: {
+                        title: "Balra igazít",
+                    },
+                    justifyright: {
+                        title: "Jobbra igazít",
+                    },
+                    justifycenter: {
+                        title: "Középre igazít",
+                    },
+                    bold: {
+                        title: "Vastag",
+                    },
+                    italic: {
+                        title: "Dőlt",
+                    },
+                    underline: {
+                        title: "Aláhúzott",
+                    },
+                    removeformat: {
+                        title: "Formázás törlése",
+                    },
                     justify: {
                         title: "Sorkizárt",
                         buttonHTML: '<span class="fonticon custom-button">\uE013</span>',
@@ -50,13 +71,14 @@
                     },
 
                     bullist: {
+                        title: "Hagyományos felsorolás",
                         transform: {
                             '<ul>{SELTEXT}</ul>': "[ul]{SELTEXT}[/ul]",
                             '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
                         }
                     },
                     bluebull: {
-                        title: "Kék felsorolás",
+                        title: "Kék gombos felsorolás",
                         excmd: 'insertHTML',
                         exvalue: "<ul class='bluebull''><li></li></ul>",
                         buttonHTML: '<img class="fonticon custom-button thumb" src="http://animeaddicts.hu/theme/apps/bb/bb-ul2.jpg" alt="">',
@@ -66,6 +88,7 @@
                         }
                     },
                     numlist: {
+                        title: "Számozott felsorolás",
                         transform: {
                             '<ol>{SELTEXT}</ol>': "[ol]{SELTEXT}[/ol]",
                             '<li>{SELTEXT}</li>': "[li]{SELTEXT}[/li]"
@@ -80,6 +103,7 @@
                     },
 
                     strike: {
+                        title: "Áthúzott",
                         transform: {
                             '<strike>{SELTEXT}</strike>': '[strike]{SELTEXT}[/strike]'
                         }
@@ -98,17 +122,20 @@
                         }
                     },
                     video: {
+                        title: "Youtube beágyazás",
                         transform: {
                             '<iframe src="http://www.youtube.com/embed/{SRC}" width="640" height="480" frameborder="0"></iframe>': '[youtube={SRC}]'
                         }
                     },
                     img: {
+                        title: "Kép",
                         transform: {
                             '<img src="{SRC}">': '[img={SRC}]'
                         }
                     },
 
                     quote: {
+                        title: "Idéz",
                         modal: {
                             title: "Idézet",
                             width: "500px",
@@ -147,6 +174,7 @@
                         }
                     },
                     code: {
+                        title: "Kód elhelyezése",
                         buttonHTML: '<span class="fonticon custom-button">\uE00d</span>'
                     },
 
