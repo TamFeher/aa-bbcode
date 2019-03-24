@@ -1,0 +1,733 @@
+
+/* FONT DEFINÍCIÓK */
+@font-face { font-family: Hilda; src: url("./fonts/Hilda.eot") }
+@font-face { font-family: Hilda; src: url("./fonts/Hilda.ttf") } /* TTF file for CSS3 browsers */
+
+/* ALAP FORMÁZÁSOK */
+#screensize { position:fixed; top:0; left:0; right:0; bottom:0; display:none; }
+#cookie-alert { z-index:100; position:fixed; float:left; bottom:5px; right:5px;
+  background:#E64A46; text-align:right; padding:10px 20px; color:white; font-weight:bold;
+  border-radius:5px; }
+  #cookie-alert a { color:white; text-decoration-line:underline; }
+  
+body { margin:0; padding:0; border:0; font-size:12px; font-family:Helvetica,sans-serif; color:#171C22; overflow-y: scroll; }
+p { padding:0; margin:0; }
+a { text-decoration:none; font-weight:600; }
+b,strong { font-weight:600; }
+a:hover { text-decoration:underline; }
+img { border:0; }
+ul { padding:0; margin:0; }
+form { padding:0; margin:0; border:0; }
+textarea,input,select {
+  background:#FFF url(http://animeaddicts.hu/theme/images/input-bg.jpg); border:1px solid #B8BAC2; padding:2px 3px; margin:0; resize:none;
+  border-radius:3px; font-family:Helvetica,sans-serif; font-size:12px;
+}
+textarea { font-family:Courier,sans-serif; font-size:13px; }
+textarea:focus,input:focus { border:1px solid #63ABC7; background:#EEEEEE; }
+.textarea-headline {
+  border-top-left-radius:4px;
+  border-top-right-radius:4px;
+  background:#EEEEEE; border-color:#DDDDDD; border-style:solid; border-width:1px 1px 0px; overflow:auto; padding-bottom:2px;
+}
+.textarea-headline input { border:0; padding:0; margin:0; float:left; }
+.textarea-headline select { margin:3px 0 0 0; float:left; font-size:8pt; }
+.textarea-headline img { float:left; border:1px solid #CCC; padding:2px; margin:0 1px 1px 0; background:#FFF; width:19px; height:19px; }
+.grippie
+{
+  background:#EEEEEE url(http://animeaddicts.hu/apps/bb/grippie.png) no-repeat scroll center 2px; border-color:#DDDDDD; border-style:solid;
+  border-width:0pt 1px 1px; cursor:s-resize; height:9px; overflow:hidden; border-bottom-left-radius:4px; border-bottom-right-radius:4px;
+}
+.resizable-textarea textarea { display:block; margin-bottom:0pt; width:50%; height: 30%; }
+
+input.submit {
+  border-radius:3px; padding:5px 10px; font-size:10pt;
+}
+input.submit:focus { }
+
+/* TEMPLATE ELEMEK FORMÁZÁSA */
+#top-stick { z-index:11000; }
+#top-container { width:100%; height:auto; background:#171C22; }
+#top { width:992px; height:87px; margin:0 auto; padding:0; color:#94A3B4; }
+  #top a { color:#94A3B4; font-weight:normal; }
+  #login { float:left; width:400px; padding:0; height:62px; margin:12px 0 0 0; overflow:hidden; }
+
+    #login div.button { width:115px; height:50px; margin-right:5px; }
+      #login div.button:hover { background:#3C4650; border-color:#A2AAB4; }
+      #login div.button span { font-size:12pt; margin: 7px 0 0 3px; text-align:center; }
+      #login div.button:first-child span { margin-top:16px; }
+      #login div.button a { padding:0; margin:0; }
+      #login div.button img { margin:4px 0; }
+
+    #login-bg { top:0; left:0; position:fixed; width:100%; height:100%; background:url(http://animeaddicts.hu/apps/login/bg.png); z-index:11000; display:none; }
+    #login-form { width:600px; height:174px; z-index:10000; position:fixed; top:50%; left:50%; z-index:12000; margin-left:-300px; margin-top:-87px }
+      #login-form h1 { width:300px; float:left; }
+      #login-form img  { float:right; margin:4px 4px 0 0; }
+
+    #login-form #login_name { background:#FFF url(http://animeaddicts.hu/icons/user_48.png) no-repeat 3px 3px; width:350px; height:50px;
+	  padding:5px 5px 5px 50px; margin:5px 0 0 0; color:#2D3A4B; float:left; z-index:101; font-size:24pt;
+	}
+	#login-form #login_password { background:#FFF url(http://animeaddicts.hu/icons/reg_48.png) no-repeat 3px 3px; width:350px; height:50px;
+	  padding:5px 5px 5px 50px; margin:5px 0 0 0; color:#2D3A4B; float:left; z-index:101; font-size:24pt;
+	}
+	#login-form #login_submit { text-align:right; font-size:19pt; margin-top:5px;
+	   float:right; width:190px; height:128px; background:url(http://animeaddicts.hu/apps/login/login.png) 5px 30px no-repeat; }
+
+    #login img.avatar {
+   	  border:1px solid #FFF; margin:5px 10px 5px 1px; float:left; width:55px; height:55px;
+   	  border-radius:5px;
+    }
+    #login div {
+	  width:308px; height:18px; background:#2B333B; border:1px solid #757F8B;
+  	  border-radius:4px;
+	  float:left; margin:5px 0; padding:0 5px; color:#000; margin-bottom:0;
+	}
+	  #login div img { float:left; padding:0; margin:3px 1px 4px 3px; border-radius:0; border:0; }
+      #login div a { color:#CCD4DC; text-decoration:none; font-size:8pt;  }
+      #login div span { color:#CCD4DC; text-decoration:none; font-size:8pt; float:left; margin:2px 3px 0px 3px;  }
+      #login div a:hover { color:#CCD4DC; text-decoration:underline; }
+    #login div.settings { padding:0; margin-right:4px; overflow:hidden; width:30px; height:30px; }
+      #login div.settings img { padding:0; float:left; }
+      #login div.settings a { margin:0; }
+
+  #online { float:left; margin:17px 5px 0 5px; padding:4px 10px 1px 10px; border-left:1px solid #757F8B; border-right:1px solid #757F8B; }
+    #online p { width:40px; float:left; text-align:center; font-size:12px; }
+    #online img { padding:0; }
+    #online a { text-decoration:none; }
+
+    #headerapp_online_title,#headerapp_chat_title { display:none; }
+    div.headerapp_text1 { border-bottom:1px solid #FFF; margin:5px 0; }
+    div.headerapp_text2 { font-size:11px; }
+
+  #search { width:467px; height:47px; overflow:hidden; float:right; font-size:10pt; margin:7px 0 0 0px; padding:10px 0 15px 0; }
+    #search form { overflow:hidden; height:36px; }
+	#search #search-text {
+	  width:400px; height:28px; border-right:0; background:#2B333B; color:#FFF;
+	  border-radius:0px;
+	  border-top-left-radius:6px;
+  	  border-bottom-left-radius:6px;
+	  font-size:10pt; padding:3px 10px; margin:0; float:left;
+	}
+	#search #search-send {
+	  width:24px; height:24px;
+	  border-radius:0px;
+	  border-top-right-radius:6px;
+  	  border-bottom-right-radius:6px;
+	  font-size:13px; font-weight:bold; padding:5px 10px; margin:0; float:left;
+	}
+	#search p,#login p { clear:both; text-align:center; margin:0; padding:5px 0 0 0; }
+	#search a,#login a { text-decoration:none; }
+	#search a:hover,#login a:hover { text-decoration:underline; }
+
+    #search #search-text { border-top:1px solid #757F8B; border-left:1px solid #757F8B; border-bottom:1px solid #757F8B; }
+    #search #search-send {
+        border-top:1px solid #757F8B; border-left:1px solid #757F8B; border-bottom:1px solid #757F8B;
+        border-right:1px solid #757F8B; color:#FFF; background:#2B333B;
+      }
+
+/* KICSINYÍTETT FEJLÉCSOR ELEMEK */
+#top.small { height:54px; }
+
+  #login.small { width:482px; height:36px; margin-top:6px; }
+    #login.small img.avatar { width:29px; height:29px; margin-right:4px; }
+    #login.small div { width:102px; height:29px; overflow:visible; margin-right:4px; }
+    #login.small div span { margin:8px 3px 0px 3px; }
+    #login.small div.settings { width:29px; height:29px; padding:0 0 0 0; margin-right:4px; }
+      #login.small div.settings img {  }
+
+    #online.small { padding:6px 6px 3px 10px; margin:12px 5px 0 5px; }
+    #online.small p { width:auto; padding:0px; }
+    #online.small img { margin-right:5px; margin-top:-3px; float:left; width:24px; height:24px; }
+
+    #search.small { width:405px; margin-top:1px; }
+      #search.small form { height:32px; }
+      #search.small #search-text { width:340px; height:24px; }
+      #search.small #search-send { width:20px; height:20px; }
+
+/* MENÜ */
+#menu-container { width:100%; height:45px; border-bottom:3px solid #E6E6E6; }
+.menu-fixed { position:fixed; width:100%; top:0; z-index:10000; margin:0 auto; }
+
+#menu { width:992px; margin:0 auto; }
+#menu ul { width:992px; float:left; padding:0; margin:0; overflow:visible; position:absolute; z-index:5000; }
+#menu li,#bottom-menu li { margin:0; border:0; display:inline; list-style:none; position:relative; list-style-position: outside; cursor:pointer;
+  height:45px; font-size:12px; font-family:sans-serif; font-weight:normal; text-transform:uppercase; padding:0; float: left; text-align:center;
+}
+#menu li li { text-align:left; }
+#menu li a,#bottom-menu li a { float:none; display:block; font-weight:normal; text-decoration:none; width:auto; height:100%; padding:0; overflow:hidden; }
+#menu li a span { width:auto; display:block; line-height:45px; z-index:150; }
+#menu li.home,#menu li.home:hover {
+  float:left; padding:8px 0 7px 0; margin:0; height:29px; overflow:hidden; width:56px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  background:#FEFEFE url(http://animeaddicts.hu/theme/images/bottom-bg.jpg) bottom repeat-x; border-right: 1px solid #999; border-left: 1px solid #999; border-top: 1px solid #999;
+}
+#menu li.home img { border:0; padding:0px 12px 0px 12px; margin:0; }
+#menu li.home a { padding:0; display:block; width:100%; height:100%; }
+#menu ul li ul {
+  visibility: hidden; display: block; top:45px; left:-1px;	width:220px; border:0; padding:0 0 5px 0;
+  border-bottom-left-radius:10px; border-bottom-right-radius:10px; overflow:visible; z-index:200;
+}
+
+#menu ul li ul li { display:block; width:220px; padding:0; border:0; height:29px; z-index:250; }
+#menu ul li ul li span {padding: 7px 0 0 10px; margin: 0;}
+#menu ul li ul li a { padding: 7px 0 0 10px; width: auto; height:22px; }
+#menu ul li ul li ul { left: 220px; top: 0px; }
+#menu ul li ul li img { margin-right: 10px; float: right; }
+#menu ul li ul li.upload { background-image: url(http://animeaddicts.hu/theme/modules/upload.png); background-position:center right 10px; background-repeat:no-repeat; }
+#menu ul li ul li.more { background-image: url(http://animeaddicts.hu/theme/images/more.png); background-position:center right 10px; background-repeat:no-repeat; }
+  #menu ul li ul li.more p { padding: 7px 0 0 10px; width: auto; height:22px; }
+
+.menuBouncer { padding:0 !important; width:100%; height:45px; z-index:100; }
+
+  #menu li.top-menu-1 { width:79px; }
+  #menu li.top-menu-2 { width:114px; }
+  #menu li.top-menu-3 { width:85px; }
+  #menu li.top-menu-4 { width:118px; }
+  #menu li.top-menu-5 { width:119px; }
+  #menu li.top-menu-6 { width:116px; }
+  #menu li.top-menu-7 { width:93px; }
+  #menu li.top-menu-8 { width:116px; }
+    #menu li.top-menu-8 ul { left:-105px; }
+  #menu li.top-menu-9 { width:84px; margin:0; }
+    #menu li.top-menu-9 ul { left:-137px; }
+
+#headerpic {
+  width:990px; height:168px; background:#FBFBFB; margin:0 auto; padding:0; border-radius:6px; margin-top:10px; border:1px solid #999;
+}
+  #headerpic div { width:980px; height:158px; border-radius:4px; margin:5px; }
+  #headerpic #headswf { padding:0; margin:0; width:980px; height:140px; border-radius:4px; }
+  #headerpic #headerapp {
+    width:auto; height:14px; float:right; border:0; overflow:hidden; padding:2px 2px 0 2px; margin:0 2px 0 0; background:#FFF;
+  	opacity:0.6; /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; filter: alpha(opacity=60);*/
+  	border-radius:2px; z-index:100;
+  }
+    #headerpic #headerapp img { width:12px; height:12px; float:none; z-index:101;  }
+    #headerpic #headerapp form { padding:0; margin:0 1px 0 0; float:left; z-index:101;  }
+
+#top-line { width:100%; margin:0 auto; height:3px; background-color:#E6E6E6; }
+
+#content { width:992px; margin:0 auto; padding:0; margin-top:10px; margin-bottom:0px; overflow:visible; }
+#left { width:272px; overflow:visible; float:left; margin:0; }
+  #left div.box { width:250px; }
+#right { width:720px; overflow:visible; float:left; padding:0; margin:0; }
+  #right div.box { width:708px; }
+  #right div.box .content { width:auto; text-align:justify; padding:10px; }
+  #right div.box table { width:708px; }
+
+#bottom-menu {
+  height:93px; width:100%; margin:0 auto; padding:0; padding-top:2px; color:#A1A1A1; clear:both;
+  background:none; border:0; background-color:#171C22;
+}
+  #bottom-menu a { color:#A1A1A1; text-decoration:underline; }
+  #bottom-menu ul { padding:0; margin:0 auto; width:992px; height:44px; overflow:hidden; }
+    #bottom-menu li.right img { float:left; margin-left:7px; }
+    #bottom-menu li { height:auto; width:auto; background:#2B333B; border:1px solid #757F8B;
+  	  border-radius:4px; float:left; margin:5px 5px 0 0; padding:11px 0px;
+    }
+    #bottom-menu li.right { padding:3px 0 2px 0; text-transform:lowercase; }
+    #bottom-menu li:hover { background:#22272C; }
+    #bottom-menu li:last-child { margin-right:0; }
+
+    #bottom-menu li.bottom-menu-1 { width:108px; } /* A csodás IE padding számításának hála... */
+    #bottom-menu li.bottom-menu-2 { width:92px; }
+    #bottom-menu li.bottom-menu-3 { width:92px; }
+    #bottom-menu li.bottom-menu-4 { width:63px; }
+    #bottom-menu li.bottom-menu-5 { width:98px; }
+    #bottom-menu li.bottom-menu-6 { width:106px; }
+    #bottom-menu li.bottom-menu-7 { width:122px; }
+    #bottom-menu li.bottom-menu-8 { width:106px; }
+    #bottom-menu li.bottom-menu-9 { width:44px; }
+    #bottom-menu li.bottom-menu-10 { width:44px; }
+    #bottom-menu li.bottom-menu-11 { width:45px; }
+
+#bottom-text { width:990px; margin:0 auto; }
+  #bottom-text #copyright { float:left; width:750px; margin:0 auto; margin-top:17px; text-align:right; }
+  #bottom-text #rss { clear:both; float:left; width:240px; margin:0 auto; margin:9px 0 8px 0; }
+    #bottom-text #rss img { float:left; }
+    #bottom-text #rss div { float:left; padding:8px 0 0 6px; }
+
+/* BOX-ok */
+div.box {
+  overflow:hidden;
+  background-color:#FBFBFB; border:1px solid #C5C5C5; margin:0 0 10px 0; padding:5px;
+  border-radius:6px; border:1px solid #999;
+}
+  div.box div.box { border:1px solid #CCC; }
+  div.box .headline,div.box .headline2 {
+   	border-radius:4px;
+   	height:28px; overflow:hidden; clear:both;
+  }
+  div.box .headline2 { height:40px; }
+    div.box h1 { padding:2px; margin:0; font-weight:bold; font-size:14px; }
+    div.box h1 a { font-weight:bold; }
+    div.box h2 { padding:2px; margin:0; font-weight:bold; font-size:9pt; }
+    div.box .headline h1,div.box .headline2 h1 { padding:5px 12px; margin:0; font-weight:normal; font-size:14px; }
+    div.box .headline2 h1 { padding:12px; }
+    div.box .headline a,div.box .headline2 a { text-decoration:none; font-weight:normal; }
+    div.box ul { list-style-position:outside; list-style-type:square; color:#171C22; padding-left:15px; }
+	div.box ul a.selected { color:#000; text-decoration:underline; }
+
+	ul.tabs { padding:0; margin:0 5px 0 -10px; }
+	  ul.tabs li { float:left; display:inline; list-style:none; list-style-position:outside; cursor:pointer; border-left:1px solid #666666; padding:0; }
+      ul.tabs li:hover { background-color: rgba(255, 255, 255, 0.1); }
+      ul.tabs li:last-child { border-right:1px solid #666666; }
+	  ul.tabs li a { text-decoration:none; padding:12px 10px; height:11px; float:left; display:block; position:relative; }
+        ul.tabs li a span { background:#FFF; color:#000; border-radius:3px; padding:0 2px; margin-left:3px; }
+        ul.tabs li a img { float:left; margin:-8px -5px 0 -5px; padding:0; }
+      ul.tabs li.active,ul.tabs li.active:hover { position:relative; background-color:#FBFBFB; border:0; }
+	  ul.tabs li.active a { position:relative; padding:7px 10px 17px 10px; }
+        ul.tabs li.active a img { margin-top:-9px; }
+         ul.tabs li.active a span { background:#000; color:#FFF; }
+      ul.tabs .hide { position: absolute; top: -9999px; left: -9999px; }
+
+      div.mylist2,div.mylist3 { padding:0px 2px 2px 4px; width:14px; height:16px; text-align:center; font-size:12pt;
+        color:white; float:left; margin:1px 3px 0 0; border-radius:2px; }
+
+      div.mylist3 { width:12px; height:14px; font-size:10pt; margin:0; }
+
+      ul.tabs li a.mylist { margin:7px 5px 6px 5px; padding:0; width:20px; height:20px; overflow:hidden; font-size:12pt; border:1px solid white; text-align:center; color:white; }
+      ul.tabs li.active a.mylist { border:1px solid black; margin:2px 5px 11px 5px; }
+
+      ul.tabs li a.listnews { padding:7px 7px 0px 7px; width:30px; height:28px; text-align:center; font-size:7pt;}
+      ul.tabs li a.listnews span { padding:0 4px; margin:0; }
+      ul.tabs li.active a.listnews { padding:2px 7px; height:31px; }
+
+   .listtype { float:right; margin:1px 0 0 0; height:32px; padding:3px 3px 3px 20px; }
+     .listtype img { margin:0; padding:3px 6px; border-left:2px solid #999; width:26px; height:26px; }
+     .listtype img.last { padding:3px 3px 3px 6px; }
+     .listtype img.selected { border-left:2px solid #1DB124; }
+
+  div.box .headline3,div.box .headline3:hover,
+  div.colorbox .headline3,div.colorbox .headline3:hover {
+   	 border-radius:3px;
+   	 border:0; height:16px; width:210px; margin:0 auto; padding:2px 5px; background:#DBDCDD;
+  }
+    div.box .headline3 h1 { float:left; padding:0; margin:0; }
+    div.box .headline3 h2 { float:left; padding:0; margin:1px 0; font-weight:normal; }
+
+  div.box .content { width:240px; overflow:auto; padding:10px 4px; text-align:center; }
+  div.box .content-rounded { overflow:auto; text-align:center; padding:6px; border:1px solid #DDD;
+    border-radius:6px; margin-top:5px; width:236px;
+  }
+    div.box .content-rounded ul { list-style-position:inside; font-size:8pt; text-align:left; margin:0 5px; padding:0; color:#777; }
+    div.box .content-rounded .headline3 { width:226px; text-align:left; font-size:8pt; }
+
+  div.box table {
+  	border:1px solid #D0D0D0; /*background:url(http://animeaddicts.hu/theme/images/bottom-bg.jpg) bottom repeat-x;*/ padding:5px; font-size:9pt;
+    border-radius:4px;
+  }
+    div.box table h1 { font-size:15px; }
+    div.box table td { padding:1px 5px; border:1px solid #FFF; border-bottom:1px dashed #DDD; border-radius:3px; }
+    div.box table tr:last-child td { border-bottom:1px solid transparent; }
+    div.box table td.left { border-right:1px solid #D0D0D0; width:100px; text-align:right; }
+    div.box table td.text { text-align:justify; padding:10px 5px; }
+    div.box table td.title { font-size:11pt; font-weight:bold; font-family:Verdana,sans-serif; padding-bottom:3px; }
+    div.box table td.headline { color:#FFFFFF; height:30px; text-align:center; border:0; }
+      div.box table td.headline select { font-size:10px; }
+      div.box table td.headline .pagecount a { margin:0 1px; }
+      div.box table td.headline .pagecount span { margin:0 2px; }
+    div.box table td.headline4,div.box table td.headline4:hover { background:#DBDCDD; padding:8px; font-size:12pt; border:0px; }
+
+    div.box table tr:hover td.headline { border:0; }
+    div.box table tr:hover td.headline2 { border:0; }
+    div.box table tr:hover td.headline3 { border:0; }
+    div.box table tr:hover td.headline4 { border:0; padding:8px; }
+    div.box table td.spacer,div.box table tr:hover td.spacer { background:none; border:0; height:10px; }
+    div.box table td.spacer2,div.box table tr:hover td.spacer2 { background:none; border:0; height:3px; }
+    div.box table tr:hover {}
+    div.box table tr:hover td { background:#DDD; border:1px solid #BBB; padding:1px 5px 1px 5px; }
+
+    div.box table td.sticked { background:#F4F2F2; border:1px solid #BBB; }
+    div.box table td.gallery { background:#EEEEEE; width:62px; text-align:center; border:1px solid #EEEEEE; }
+    div.box table td.gallery2 { background:#9CD692; width:62px; text-align:center; border:1px solid #9CD692; }
+    div.box table.noborder td.left,div.box table.noborder td.right,
+    div.box table.noborder td.left:hover,div.box table.noborder td.right:hover
+      { border:0; border-bottom:1px dashed #DDD; background:none; padding:1px 5px; border-radius:0; }
+    div.box table.noborder tr:last-child td,div.box table.noborder tr:last-child td:hover { border-bottom:1px solid transparent; }
+    div.box table.noborder td.headline3 { border:0; padding:3px 5px; }
+    div.box table.noborder td.text { border:0; background:none; padding:10px 5px; }
+    div.box table.noborder td.spacer,div.box table.noborder td.spacer2 { border:0; background:none; padding:1px 5px; }
+    div.box table td.category { padding:5px; background:none; border:0; border-bottom:1px dashed #CCC; }
+    div.box table td.category:hover { padding:5px; background:none; border:0; border-bottom:1px dashed #CCC; }
+    div.box table tr:last-child td.category { border-bottom:1px solid transparent; }
+
+    div.box table td.dataonly { background-color:#F1F1F1; border:1px solid #F1F1F1; }
+    div.box table td.dataonly2 { background:#F1F1F1 url(http://animeaddicts.hu/theme/modules/encyclopedia/dataonly.jpg) bottom 5px right no-repeat; border:1px solid #F1F1F1; }
+
+    div.box table td.function,div.box table tr:hover td.function { width:25%; text-align:center; padding:10px; border:0; border-bottom:1px dashed #DDD; background:none; }
+      div.box table td.function a { text-decoration:none; }
+      div.box table td.function a:hover { color:#999; }
+      div.box table td.function img.i96b:hover { opacity:0.5; }
+
+div.search { overflow:visible; }
+    div.search select { width:140px; }
+    div.search .input { padding:2px 8px; font-size:12pt; text-align:center; height: 1%; border: 1px solid #aaa; background-color: #fff; height:auto;
+      background-image: linear-gradient(#eeeeee 1%, #ffffff 15%); color: #000; text-decoration: none; white-space: nowrap; line-height: 27px; border-radius: 3px; }
+    div.search .submit { width:107px; }
+    div.search table { width:250px; background:none; margin-top:5px; }
+    div.search div.headline1,div.search div.headline2,div.search div.headline3,div.search div.headline4 { margin-top:5px; }
+    div.search div.headline2:first-child { margin-top:0; }
+    div.search div.headline3,div.search div.headline3:hover { margin-top:5px; width:auto; height:auto; overflow:auto; background:#DBDCDD; border-top:1px solid #CCC; border-top:1px solid #CCC; border-right:1px solid #CCC; padding:5px; }
+    div.search .headline3 h1 { color:#000; font-size:14pt; font-weight:normal; }
+    div.search table td.big,div.search table td.big:hover { font-size:12pt; padding:5px; }
+      div.search table td.big img { float:left; }
+      div.search table td.big span { padding:6px 8px; float:left; }
+      div.search table td.big a { font-weight:normal; }
+    div.search table td.selected,div.search table td.selected:hover,div.search table td.selected:last-child { background:#EEE; border:1px solid #CCC; }
+    div.search .content-rounded { padding:6px 4px 6px 3px; }
+
+div.titlebox {
+  background:url(http://animeaddicts.hu/theme/images/bottom-bg.jpg) bottom left repeat-x; overflow:auto; height:38px; margin:0 auto; padding:0;
+  border-top:1px solid #D0D0D0; border-left:1px solid #D0D0D0; border-bottom:1px solid #B9BABB; border-right:1px solid #B9BABB; color:#000;
+  border-radius:3px; overflow:hidden;
+}
+  div.titlebox h1 { padding:7px 10px 0 10px; margin:0; font-weight:normal; font-size:13pt; font-family:Verdana,sans-serif; float:left; color:#000; }
+  div.titlebox img { float:left; }
+  div.titlebox a { font-weight:normal; }
+  div.titlebox div.button { background:url(http://animeaddicts.hu/theme/images/titlebox-separator.jpg) top left no-repeat; width:auto; height:32px; display:block; padding:3px 10px; margin:0; float:right; border:0; }
+    div.titlebox div.button img:hover { opacity:0.7; }
+    div.titlebox div.active { background:#E6E6E6; color:#FFF; border-radius:5px; border:1px solid #DDD; margin:2px 0; height:25px; }
+    div.titlebox div.active a { text-decoration:none; border-bottom:2px solid #AAA; color:#333; margin-top:-3px; }
+    div.titlebox div.active + div.button { background:none; }
+
+  div.titlebox .pagecount { margin:6px 0 0 0; }
+    div.titlebox .pagecount span { font-size:10pt; float:left; margin:0 1px; padding:2px 4px; }
+    div.titlebox .pagecount a { color:#FFF; font-size:9pt; float:left; margin:0 1px; padding:2px 2.3px; }
+    div.titlebox .pagecount a:hover { opacity:0.5; }
+    div.titlebox .pagecount select { float:left; font-size:9pt; padding:0 2px; margin:2px 1px; }
+  div.titlebox ul { float:right; padding:0; margin:0; overflow:auto; }
+  div.titlebox li {
+  	display:inline; list-style:none; list-style-position:outside; background:url(http://animeaddicts.hu/theme/images/titlebox-separator.jpg) top left no-repeat;
+  	width:30px; height:29px; padding:9px 3px 0 3px; margin:0; border:0; float:left; font-size:12pt; color:#555; cursor:pointer;
+    text-align:center;
+  }
+    div.titlebox ul li a { text-decoration:none; }
+    div.titlebox select.jump_page { padding:2px; font-size:12pt; margin-top:2px; }
+    div.titlebox ul li#button_selected,div.titlebox ul li.button_selected  { border-radius:3px; }
+
+    div.charlist { margin-top:-3px; background:#FFF; position:relative; z-index:2000; height:32px; }
+      div.charlist li { width:20px; height:24px; float:left; padding-top:8px; }
+      div.charlist li a { font-size:12pt; font-weight:100; color:#000; display:block; width:100%; height:100%; }
+      div.charlist li:first-child { background:none; }
+
+/* Gombok */
+.button {
+  height:20px; width:auto; padding:5px; margin:0 auto; font-weight:normal;
+  border-radius:10px;
+}
+  .button a { color:#FFFFFF; font-weight:normal; }
+  .button span { font-size:7pt; color:#000; float:left; }
+
+    div.search-button { border-radius:5px; cursor:pointer; width:68px; height:68px; line-height:68px; padding:5px; vertical-align:middle; text-align:center; border:0;
+        background:#DBDCDD; font-size:11pt; float:left; margin:0; margin-right:3px; user-select: none; }
+    div.search-button:last-child { margin:0; width:67px; }
+    div.search-active { color:white; background:#0391F5; }
+    div.search-button span { display: inline-block; vertical-align: middle; line-height: normal; }
+
+ /* Adver */
+.h220 { margin-left:10px; }
+.h220 img,.h220 div.flash {
+  width:214px; height:50px; border:1px solid #C7C3C3; padding:3px; clear:both; overflow:hidden; float:left; margin-bottom:3px;
+  border-radius:4px;
+}
+
+/* Encyclopedia preview */
+#encyclopedia-preview { width:727px; height:179px; position:relative; overflow:hidden; margin-left:1px; margin-bottom:2px; }
+#encyclopedia-preview ul { list-style:none; padding:0; margin:0; width:720px; }
+#encyclopedia-preview ul #slide { position:absolute; left:0px; top:0px; width:727px; }
+#encyclopedia-preview ul #slide li { width:727px; overflow:hidden; position:relative; padding:0; margin:0; }
+
+/* Project preview */
+#projects_preview { width:260px; height:161px; padding:5px 0; }
+#projects_preview ul { list-style:none; padding:0; margin:0; width:246px; }
+#projects_preview li.thumb { width:244px; height:112px; overflow:hidden; }
+#projects_preview li div { position:relative; top:93px; left:0px; right:0px; bottom:2px; background:rgba(0,0,0,0.5); color:#FFF; font-size:12px; padding:2px 5px; }
+ul#slide_projects_nav { list-style:none; padding:0; margin:9px 5px 8px 0; width:146px; float:right; }
+ul#slide_projects_nav li {
+  width:0px; height:0px; overflow:hidden; float:right; padding:5px;margin:0 1px 1px 0;
+  border-radius:2px; cursor:pointer;
+}
+ul#slide_projects_nav li#button_selected { background:#FFF; }
+ul#slide_projects_nav li.button_selected { background:#FFF; }
+
+div.encyclopedia-box {
+  width:107px; height:167px; float:left; padding:3px; margin:2px 3px 0 0; border:1px solid #C7C3C3;
+  border-radius:4px; background:#FFF; overflow:visible;
+}
+div.encyclopedia-box .hover_content { display:none; }
+div.encyclopedia-box:hover .hover_content {
+  float:left; display:block; position:absolute; padding:5px;
+  background:rgba(0,0,0,0.7); z-index:300; width:97px; height:157px;
+}
+div.encyclopedia-box img { width:107px; height:167px; float:left; z-index:100; position:relative; }
+div.encyclopedia-box a { font-weight:normal; font-size:10px; color:#FFF; }
+
+/* Thumb */
+.thumb {
+  margin:0 5px 5px 5px; padding:2px; border:1px solid #CCCCCC;
+  border-radius:3px; background-color:#FFFFFF;
+}
+.thumb2 {
+  margin:0; padding:2px; border:1px solid #CCCCCC; border-radius:3px; background-color:#FFFFFF;
+}
+
+/* Twinkle */
+.twinkle { opacity:1.0; /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)"; filter: alpha(opacity=100);*/   }
+.twinkle:hover { opacity:0.8; /*-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)"; filter: alpha(opacity=50);*/  }
+
+/* Oldalszámozás */
+.pagecount { font-size:8pt; }
+  .pagecount a { font-weight:normal; text-decoration:none; padding:1px 3px; margin:0; font-size:8pt; border-radius:3px; }
+  .pagecount a:hover { }
+  .pagecount span {}
+
+/* Fórum tábla */
+table.forum-t tr td { border:1px solid #E5E5E5; border-radius:6px; }
+  .forum-t .pagecount { padding:0; margin:0 5px 2px 5px; }
+  .forum-t .pagecount a { font-size:8pt; }
+.icon { width:32px; }
+.description a { font-size:11pt; }
+.lastpost { width:200px; }
+.lastpost a { font-weight:normal; }
+.topicdb { width:60px; text-align:center; }
+
+
+.quote,.forum-box,.forum-box2,.spoiler { background:#DDD url(http://animeaddicts.hu/theme/modules/forum/quote.png) 5px 5px no-repeat; border-left:2px solid #AAA; padding:5px 10px 5px 27px; margin:5px 0; }
+
+
+
+.forum-box,.forum-box2,.spoiler { background:#DDD; padding:5px 10px; }
+  .forum-box2 { border:0; background-color:#E4E5E6; padding:5px 4px; width:410px; float:left; }
+  .forum-box2 a { float:left; margin:1px 0 0 3px; }
+  .forum-box2 img.thumb { border:0; box-shadow:none; padding:0; margin:0 0px 1px 0; background:none; float:left; }
+  .forum-box2 img.thumb a { margin:0; float:none; }
+  table.noborder div.forum-box2 { background-color:#DDDDDD; width:798px; border:1px solid #BBB; }
+
+
+
+
+.spoiler { line-height:120%; height:13px; overflow:hidden; border:0; border-left:2px solid #C00204; border-radius:0;
+
+
+background:#DDD url(http://animeaddicts.hu/icon/comment2_red.png) 5px 5px no-repeat; background-size:16px 16px; padding:5px 10px 5px 27px;
+
+
+
+ }
+
+
+
+
+.teambox { border:1px solid #DDD; width:94px; margin:0 auto; border-radius:3px; overflow:auto; padding:3px; }
+.code { white-space: pre; font-family:courier; line-height: 60%; }
+
+button.forum { background:none; border:1px solid #CCC; height:22px; padding:0 6px; border-radius:3px; margin:0; cursor:pointer; }
+  button.forum img { padding:0; margin:0 5px 0 0; float:left; }
+  button.forum a { text-decoration:none; font-weight:normal; }
+
+/* Chat */
+.chatbox .box { margin:0 4px 4px 0;padding:2px 2px 0 2px;float:left;z-index:11;position:relative; text-align:justify; min-height:30px; }
+
+/* megjegyzés buborékok */
+#dhtmltooltip { position: absolute; left:-300px; border:2px solid #FFF; font-size:11px;
+  border-radius:3px;
+  padding:2px 5px 4px 5px; background:url(http://animeaddicts.hu/theme/modules/tippbg.png); color:#FFFFFF; visibility: hidden; z-index: 5000; }
+#dhtmlpointer { position:absolute; left:-300px; z-index:5001; visibility:hidden; }
+.tooltip { display:none; background:transparent url(http://animeaddicts.hu/js/tooltips/black_arrow_bottom1.png) no-repeat; font-size:12px; width:173px; padding:26px 18px 10px 18px; color:#fff; z-index:11000; }
+.tooltip2 { background:transparent url(http://animeaddicts.hu/js/tooltips/black_arrow_bottom2.png) no-repeat; height:12px; margin:5px -18px -20px -18px; }
+
+#s-m-t-tooltip
+{
+  max-width:300px;
+  z-index:100000;
+  margin:24px 14px 7px 8px;
+  padding:5px 10px;
+  background:#222;
+  background:rgba(0,0,0,0.8);
+  border-radius:3px;
+  font-size:11px;
+  line-height:16px;
+  color:#fff;
+  white-space:pre-line;
+}
+
+/* Ajaxos keresőlista */
+.validate { background:#FFFFFF url(http://animeaddicts.hu/theme/modules/avaible.gif) 139px no-repeat; }
+.suggestionsBox { position:relative; left:0; top:-2px; z-index:10000; margin:0; width:200px; height:0; border:0; clear:both; }
+.suggestionList { position:relative; z-index:300; margin:0px; padding:2px 0px; overflow:auto; float:none; background:#FFFFFF; border:1px solid #579CE1; border-radius:0 0 3px 3px; }
+.suggestionList select { border:0; padding:0; width:196px; font-size:9pt; }
+.suggestionList option:hover { border-radius:2px; background-color:#DBDCDD; }
+.suggestionList div.count { font-size:7pt; border-top:1px solid #63ABC7; padding:2px 5px 0px 5px; }
+
+.suggestionsBox.wide { width:518px; }
+.suggestionsBox.wide .suggestionList { border-top:0; max-height:196px; overflow-y:scroll; overflow-x:hidden; }
+.suggestionsBox.wide div.count { background:#DDD; font-size:10pt; padding:5px 8px; border-left:1px solid #579CE1; border-right:1px solid #579CE1;  }
+.suggestionDiv { width:486px; color:#333; font-size:11pt; margin:1px 3px; padding:5px; cursor:pointer; }
+.suggestionDiv:hover, .suggestionDiv:hover .comment2 { background:#3470D0; color:#FFF; }
+input.suggestionsInput:focus { border-radius:3px 3px 0px 0px; outline-width:2px; }
+.suggestionDiv-disabled { width:486px; color:#777; font-size:11pt; margin:1px 3px; padding:5px; cursor:inherit; }
+
+/* Képgaléria csúsztató */
+#slider { width: 650px; margin: 0 auto; margin-top:10px; position: relative; border: 10px solid #ccc; border-radius:6px; }
+.scroll { overflow: hidden; width: 650px; margin: 0 auto; position: relative; }
+.scrollContainer { position: relative; }
+.scrollContainer div.panel { padding: 10px; width: 274px; height: 302px; }
+#left-shadow { position:absolute; top:0; left:0; width:12px; bottom:0; background:url(http://animeaddicts.hu/apps/box-generator/leftshadow.png) repeat-y; }
+#right-shadow { position:absolute; top:0; right:0; width:12px; bottom:0; background:url(http://animeaddicts.hu/apps/box-generator/rightshadow.png) repeat-y; }
+.inside { padding: 10px; border: 1px solid #CCC; border-radius:6px; }
+.inside img { display: block; margin: 0 0 10px 0; width: 250px; }
+.inside h2 { font-weight: normal; color: #111; font-size: 16px; margin: 0 0 8px 0; }
+.inside p { font-size: 11px; color: #888; }
+.scrollButtons { position: absolute; top: 127px; cursor: pointer; }
+.scrollButtons.left2 { left: -29px; }
+.scrollButtons.right2 { right: -29px; }
+
+/* FTP kezelő */
+#ftp { background:#FFFFFF; border: 1px solid #aaa; margin-top:2px; padding:0; width:540px;height:186px; border-radius:3px; }
+#ftp p { padding:0; margin:0; background-color:#EEEEEE; padding:3px 5px; font-size:10pt; height:20px; }
+#ftp p input { font-size:10pt; padding:0; margin:0; }
+#ftp div { height:163px; }
+#ftp select { border:0; width:540px; height:160px; background:#FFFFFF; font-size:8pt; }
+#ftp select option.updir { font-size:12px; font-family:Courier; padding: 4px 4px 2px 20px; background:#FFFFFF url(http://animeaddicts.hu/icon/up.png) 1px 3px no-repeat; background-size:16px 16px; }
+#ftp select option.dir { font-size:12px; font-family:Courier; padding: 4px 4px 2px 20px; background:#FFFFFF url(http://animeaddicts.hu/icon/folder_yellow.png) 1px 3px no-repeat; background-size:16px 16px; }
+#ftp select option.file { font-size:12px; font-family:Courier; padding: 4px 4px 2px 20px; background:#FFFFFF url(http://animeaddicts.hu/icon/item.png) 1px 3px no-repeat; background-size:16px 16px; }
+
+/* Vegyes */
+.i12 { width:12px;  }
+.i16 { width:16px;  } /* ikonok */
+.i24 { width:24px;  }
+.i32 { width:32px;  }
+.i40 { width:40px;  }
+.i48 { width:48px;  }
+.i64 { width:64px;  }
+.i96 { width:96px;  }
+.i128 { width:128px;  }
+
+.i16b { width:12px; border:2px solid #323232; border-radius:5px; padding:2px; } /* keretes ikonok */
+.i24b { width:16px; border:2px solid #323232; border-radius:5px; padding:2px; }
+.i32b { width:24px; border:2px solid #323232; border-radius:5px; padding:2px; }
+.i48b { width:36px; border:3px solid #323232; border-radius:5px; padding:3px; }
+.i64b { width:52px; border:4px solid #323232; border-radius:5px; padding:4px; }
+.i96b { width:74px; border:4px solid #323232; border-radius:10px; padding:6px; }
+
+.i16b2 { width:12px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:3px; padding:4px; } /* keretes ikonok 2 */
+.i24b2 { width:16px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:3px; padding:4px; }
+.i32b2 { width:24px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:3px; padding:4px; }
+.i48b2 { width:36px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:5px; padding:5px; }
+.i64b2 { width:52px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:5px; padding:6px; }
+.i96b2 { width:74px; border:1px solid #FFFFFF; background-color:#CCCCCC; border-radius:10px; padding:8px; }
+
+.i16bi { width:12px; border:2px solid #323232; border-radius:5px; background-color:#FFFFFF; padding:2px; } /* keretes inverz ikonok */
+.i24bi { width:16px; border:2px solid #323232; border-radius:5px; background-color:#FFFFFF; padding:2px; }
+.i32bi { width:24px; border:2px solid #323232; border-radius:5px; background-color:#FFFFFF; padding:2px; }
+.i48bi { width:36px; border:3px solid #323232; border-radius:5px; background-color:#FFFFFF; padding:3px; }
+.i64bi { width:52px; border:4px solid #323232; border-radius:5px; background-color:#FFFFFF; padding:4px; }
+.i96bi { width:74px; border:4px solid #323232; border-radius:10px; background-color:#FFFFFF; padding:6px; }
+
+.a50 { width:50px; height:50px;  } /* avatarok */
+.a75 { width:75px; height:75px;  }
+.a100 { width:100px; height:100px;  }
+
+.w16 { width:16px; } /* szélessék minták */
+.w24 { width:24px; }
+.w32 { width:32px; }
+.w50 { width:50px; }
+.w75 { width:75px; }
+.w100 { width:100px; }
+.w200 { width:200px; }
+.w300 { width:300px; }
+.w400 { width:400px; }
+.w500 { width:500px; }
+.w600 { width:600px; }
+
+.fleft { float:left; } /* lebegtetések */
+.fright { float:right; }
+
+.domain::before { content: "\0040"; } /* kukac */
+
+.play-button { margin:56px 0 0 72px; padding:0 10px; background-color: rgba(248, 235, 225, 0.7); border-radius: 0.8em; border:2px solid #666; }
+.play-button:hover { box-shadow: 0px 0px 10px #444;  }
+
+.al12 { width:16px; height:16px; padding:2px; border:2px solid #FFAC35; border-radius:25%; margin:0; color:#FFAC35; font-weight:bold; font-size:13px; text-align:center; } /* korhatár jelölések */
+.al16 { width:16px; height:16px; padding:2px; border:2px solid #FFAC35; border-radius:25%; margin:0; color:#FFAC35; font-weight:bold; font-size:13px; text-align:center; }
+.al18 { width:16px; height:16px; padding:2px; border:2px solid #DF2224; border-radius:25%; margin:0; color:#DF2224; font-weight:bold; font-size:13px; text-align:center; }
+.al21 { width:16px; height:16px; padding:2px; border:2px solid #DF2224; border-radius:25%; margin:0; color:#DF2224; font-weight:bold; font-size:13px; text-align:center; }
+.albig { width:23px; height:21px; font-size:18px; margin-top:1px;  }
+
+.stat-horizontal 
+{ 
+  height:20px; background-color:blue; border-left:5px solid #AAA; 
+  background: linear-gradient(to bottom, rgba(255,183,107,1) 0%,rgba(255,167,61,1) 50%,rgba(255,124,0,1) 51%,rgba(255,127,4,1) 100%);
+}
+.stat-horizontal2
+{ 
+  height:20px; background-color:blue; border-left:5px solid #AAA; 
+  background: linear-gradient(to bottom, rgba(248,80,50,1) 0%,rgba(241,111,92,1) 50%,rgba(246,41,12,1) 51%,rgba(240,47,23,1) 71%,rgba(231,56,39,1) 100%);
+}
+
+/* lapozók */
+div.slide-container { height:190px; width:690px; overflow:hidden; margin-left:1px;  }
+ul.slide { padding:0; margin:0; }
+ul.slide li { list-style:none; padding:0; margin:0; float:right; width:690px; }
+
+ul.slide_nav { padding:0; margin:0; float:right; }
+ul.slide_nav li { float:right; display:inline; background-color:#777; color:#FFF; padding:10px 10px; margin:-1px 1px; border-radius:3px; cursor:pointer; }
+ul.slide_nav li a { color:#FFF; font-weight:normal; text-decoration:none; }
+ul.slide_nav li.button_selected { background-color:#3A3A3A; }
+img.slide_img { cursor:pointer; float:left; }
+
+/*.inverted { filter: invert(100%); -webkit-filter: invert(100%); }*/
+.comment { color:#888; font-style: italic; font-weight:normal; }
+.comment2 { color:#888; font-weight:normal; }
+.valign { position: relative; top: 50%; /*-webkit-transform: translateY(-50%); -ms-transform: translateY(-50%);*/ transform: translateY(-50%); }
+.touchable { cursor:pointer; }
+.term { text-decoration:none; border-bottom:1px dashed; cursor:help; }
+.term:hover { text-decoration:none; }
+.term2 { text-decoration:none; border-bottom:1px dotted; cursor:help; }
+.term2:hover { text-decoration:none; }
+div.h1 { font-size:15px; border-bottom:1px dashed #AAA; border-left:4px solid #AAA; font-weight:bold; padding:2px 5px; clear:both; }
+div.h2 { font-size:13px; border-bottom:1px solid #AAA; font-weight:bold;  padding:2px 0; clear:both; }
+
+.itemdb { float:right; border:1px solid #CCC; padding:2px; border-radius:3px; margin:0; }
+  .itemdb div { font-size:12pt; background:#555555; color:#FFF; width:68px; height:19px; border-radius:2px; text-align:center; padding:7px 2px; margin:0; }
+  .itemdb div a { font-weight:normal; color:#FFF; }
+
+/* Naptár */
+.naptar { width:232px; margin:0 auto; border:1px solid #CCC; border-radius:3px; background-color:#D2D2D2; }
+.naptar div { text-align:center; background-color:#9C9C9C; color:#FFF; font-weight:bold; margin:0 2px; overflow:auto;padding:0; }
+.naptar a { float:left; border:1px solid #9C9C9C; text-align:center; width:29px; height:18px; margin:1px; padding:2px 0 0 0;
+  background-color:#E2E2E2; cursor:pointer; text-decoration:none; color:#000; }
+.naptar a:hover { text-decoration:none; }
+.naptar p { padding:0; height:16px; overflow:hidden; background:#DDD; }
+.naptar p.left { float:left; width:30px;  }
+.naptar p.center { float:left; width:168px; text-align:center; color:#000; }
+.naptar p.right { float:left; width:30px; }
+.naptar p a { border:0; padding:0; margin:0; width:auto; height:auto; background:none; text-align:center; float:none; }
+.naptar span { float:left; border:1px solid #9C9C9C; text-align:center; width:29px; height:18px; margin:1px; background-color:#E2E2E2; color:#000; padding:2px 0 0 0; }
+.naptar span.head { float:left; border:0; padding-top:5px; text-align:center; font-weight:bold; font-size:8pt; width:31px; height:18px; margin:1px; color:#000;background-color:transparent; }
+
+/* Admin menü */
+#admin_menu { }
+#admin_menu div.headline3 { height:auto; }
+#admin_menu div.headline3:hover { background:#BBB; }
+#admin_menu div.headline3 ul { clear:both; margin:10px; color:#555; }
+#admin_menu div.headline3 ul a { color:#555; }
+
+/* Ismertető lenyíló */
+.suggestionList ul { padding:0; margin:0 0 0 -8px; border:0;}
+.suggestionList li { margin:0 2px; padding:1px 4px; cursor:pointer; float:none; list-style-position:inside; list-style-type:square; }
+.suggestionList li:hover { border-radius:2px; background-color:#DBDCDD; }
+
+/* Hírek */
+div.news { margin:0; padding-bottom:2px; }
+  div.news div.headline3,div.news div.headline3:hover { height:56px; float:left; padding-left:2px; overflow:hidden; cursor:pointer; }
+  div.news div.headline3 img.thumb { float:left; margin:0px 3px 0px 0px; background:white; }
+
+div.news-footer { overflow:auto; margin:5px 0 10px 0; }
+  .news-footer div { float:left; background:#AAA; color:#FFF; width:200px; border-radius:4px; text-align:center; padding:4px 0px; margin:0 5px 0 0; }
+  .news-footer div:last-child { margin:0; }
+  .news-footer a { color:#FFF; }
+  
+.newspager { padding:5px 1px;  display:block; width:577px; text-align:center; margin-bottom:10px; font-size:12pt; background:#2B333B; color:#FFF; border-radius:4px; font-family:tahoma; }
+.newspager:hover { background-color:#AAAAAA; color:#2B333B; }
+a.newspager { text-decoration:none; }
