@@ -40,7 +40,6 @@
                     if (this.options.bbmode) {
                         this.insertAtCursor('   ', false);
                     } else {
-                        //this.insertAtCursor('<span class="wbbtab">\uFEFF</span>',false);
                         if (!e.shiftKey) {
                             this.execNativeCommand("indent", false);
                         } else {
@@ -101,13 +100,6 @@
                             '<a href="{URL}">{SELTEXT}</a>': '[link={URL}]{SELTEXT}[/link]'
                         }
                     },
-                    /*spoiler: {
-                        title: "Spoiler",
-                        buttonText: "Spoiler",
-                        transform: {
-                            '':'[spoiler]{SELTEXT}[/spoiler]'
-                        }
-                    },*/
                     box1: {
                         title: "Teljes szélességű doboz",
                         buttonText: "> <",
@@ -148,7 +140,6 @@
                         title: "Méret...",
                         options: "fs_apro,fs_kicsi,fs_normal,fs_kozepes,fs_nagy,fs_nagyobb,fs_oriasi"
                     },
-                    //select options
                     fs_apro: {
                         title: "Apró",
                         buttonText: "fs1",
@@ -283,8 +274,3 @@
 <textarea id="editor"></textarea>
 </body>
 </html>
-
-<!--
-video - i can't even...
-spoiler - script?
--->
